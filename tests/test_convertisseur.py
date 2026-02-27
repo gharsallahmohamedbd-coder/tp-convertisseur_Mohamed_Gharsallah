@@ -1,6 +1,13 @@
 # tests/test_convertisseur.py
+import sys
+import os
 import pytest
-import convertisseur  # PAS `from src.convertisseur import *`
+
+# Ajouter le dossier src au path
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../src')))
+
+import convertisseur  # maintenant Python le trouve toujours
+
 def test_zero_celsius():
     assert convertisseur.celsius_vers_fahrenheit(0) == 32.0
 
